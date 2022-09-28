@@ -25,6 +25,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - name: Super-Linter
-        uses: github/super-linter@v4.9.
+        uses: github/super-linter@v4.9.5
         env:
           VALIDATE_CSHARP: true
