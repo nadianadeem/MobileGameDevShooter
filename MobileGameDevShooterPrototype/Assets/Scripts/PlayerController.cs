@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private CharacterController controller;
     private PlayerInput playerInput;
+    private Animator PlayerAnimator;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     private float playerSpeed = 2.0f;
@@ -14,8 +15,9 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        controller = gameObject.AddComponent<CharacterController>();
+        controller = gameObject.GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
+        PlayerAnimator = GetComponent<Animator>();
     }
 
     void Update()
@@ -26,15 +28,28 @@ public class PlayerController : MonoBehaviour
             playerVelocity.y = 0f;
         }
 
-        Vector2 input = playerInput.actions["Movement"].ReadValue<Vector2>();
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        Vector2 MovementInput = playerInput.actions["Movement"].ReadValue<Vector2>();
+        Vector3 MovementVector = new Vector3(MovementInput.x, 0, MovementInput.y);
 
 
-        controller.Move(move * Time.deltaTime * playerSpeed);
+        controller.Move(MovementVector * Time.deltaTime * playerSpeed);
 
-        if (move != Vector3.zero)
+        if (MovementVector != Vector3.zero)
         {
-            gameObject.transform.forward = move;
+            gameObject.transform.position = MovementVector;
+            PlayerAnimator.SetBool("IsWalking", true);
+        }
+        else
+        {
+            PlayerAnimator.SetBool("IsWalking", false);
+        }
+
+        Vector2 LookInput = playerInput.actions["Look"].ReadValue<Vector2>();
+        Vector3 LookVector = new Vector3(LookInput.x, gameObject.transform.position.y, LookInput.y);
+
+        if(LookInput.x != 0.0f || LookInput.y != 0.0f)
+        {
+            transform.LookAt(LookVector);
         }
 
         playerVelocity.y += gravityValue * Time.deltaTime;
