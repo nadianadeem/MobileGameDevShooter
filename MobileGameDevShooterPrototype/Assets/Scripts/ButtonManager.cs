@@ -2,25 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
     public GameObject GameTitle;
     public GameObject ShootingJoystick;
     public GameObject MovementJoystick;
+    public GameObject GyroOption;
 
     public GameObject MainMenu;
     public GameObject SettingsMenu;
 
+    public Text ControllerText;
     public PlayerController PlayerControl;
 
     // Start is called before the first frame update
     void Start()
     {
+        SetControllerType(2);
         ShootingJoystick.SetActive(false);
         MovementJoystick.SetActive(false);
 
         SettingsMenu.SetActive(false);
+    }
+
+    void SetControllerType(int InControlType)
+    {
+        PlayerControl.ControlType = InControlType;
+
+        switch (PlayerControl.ControlType)
+        {
+            case 1:
+                ControllerText.text = "SELECTED: JOYSTICK + AUTO AIM";
+                break;
+            case 2:
+                ControllerText.text = "SELECTED: JOYSTICKS MOVE + AIM";
+                break;
+            case 3:
+                if (SystemInfo.supportsGyroscope)
+                {
+                    ControllerText.text = "SELECTED: GYRO + AUTO AIM";
+                }
+                break;
+        }
     }
 
     public void StartGame()
@@ -49,8 +74,12 @@ public class ButtonManager : MonoBehaviour
     public void OpenSettingsMenu()
     {
         MainMenu.SetActive(false);
-
         SettingsMenu.SetActive(true);
+
+        if (!SystemInfo.supportsGyroscope)
+        {
+            GyroOption.SetActive(false);
+        }
     }
 
     public void CloseSettingMenu()
@@ -61,16 +90,16 @@ public class ButtonManager : MonoBehaviour
 
     public void SetOneJoystick()
     {
-        PlayerControl.ControlType = 1;
+        SetControllerType(1);
     }
 
     public void SetTwoJoysticks()
     {
-        PlayerControl.ControlType = 2;
+        SetControllerType(2);
     }
 
     public void SetGyroControl()
     {
-        PlayerControl.ControlType = 3;
+        SetControllerType(3);
     }
 }
