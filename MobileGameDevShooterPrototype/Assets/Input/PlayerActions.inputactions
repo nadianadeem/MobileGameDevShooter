@@ -18,7 +18,16 @@
                     "name": "Look",
                     "type": "Value",
                     "id": "df244cad-7596-4311-9037-cbcd9348d83b",
-                    "expectedControlType": "Quaternion",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "GyroMovement",
+                    "type": "Value",
+                    "id": "3d87fb28-3597-49a1-bd91-c367ba4c1718",
+                    "expectedControlType": "Vector3",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -46,32 +55,15 @@
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "PlayerControlsGyro",
-            "id": "e26bb42e-ecdd-4e1a-92fd-9f7ab78c934b",
-            "actions": [
-                {
-                    "name": "Movement",
-                    "type": "Value",
-                    "id": "834afdf1-a776-47bd-82e1-30806fc17bac",
-                    "expectedControlType": "Vector3",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "",
-                    "id": "61f2b518-a3eb-4ce1-89fc-bc8e32cf19ba",
+                    "id": "a1b17349-2cd6-4f6c-8146-d0e4b1b816c5",
                     "path": "<Gyroscope>/angularVelocity",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "GyroMovement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
