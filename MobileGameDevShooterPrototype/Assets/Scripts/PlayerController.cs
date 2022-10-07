@@ -7,8 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     //Integer to represent control type. Default is 2.
     //1: One Joystick with autoaim. 2: Two Joysticks no auto aim. 3: Gyro controls with auto aim.
-    public int ControlType = 2;
+    public int ControlType;
     public bool GameStarted;
+    public BulletManager bm;
 
     private CharacterController controller;
     private PlayerInput playerInput;
@@ -42,7 +43,6 @@ public class PlayerController : MonoBehaviour
                 Vector2 MovementInput = playerInput.actions["Movement"].ReadValue<Vector2>();
                 Vector3 MovementVector = new Vector3(MovementInput.x, 0, MovementInput.y);
 
-
                 controller.Move(MovementVector * Time.deltaTime * playerSpeed);
 
                 if (MovementVector != Vector3.zero)
@@ -62,15 +62,13 @@ public class PlayerController : MonoBehaviour
             if (ControlType == 2)
             {
                 Vector2 LookInput = playerInput.actions["Look"].ReadValue<Vector2>();
-                Vector3 LookVector = new Vector3(LookInput.x, 0, LookInput.y);
+                Vector3 playerDirection = Vector3.right * LookInput.x + Vector3.forward * LookInput.y;
 
                 if (LookInput.x != 0.0f || LookInput.y != 0.0f)
                 {
-                    transform.LookAt(LookVector);
+                    Quaternion newRotation = Quaternion.LookRotation(playerDirection);
+                    gameObject.transform.rotation = Quaternion.RotateTowards(gameObject.transform.rotation, newRotation, 200.0f * Time.deltaTime);
                 }
-
-                playerVelocity.y += gravityValue * Time.deltaTime;
-                controller.Move(playerVelocity * Time.deltaTime);
             }
             
             if(ControlType == 3)

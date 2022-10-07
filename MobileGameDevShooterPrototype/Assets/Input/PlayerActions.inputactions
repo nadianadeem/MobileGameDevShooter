@@ -9,7 +9,7 @@
                     "name": "Movement",
                     "type": "Value",
                     "id": "161b3da9-a6c8-4abf-9150-83c51399988c",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Quaternion",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -18,7 +18,7 @@
                     "name": "Look",
                     "type": "Value",
                     "id": "df244cad-7596-4311-9037-cbcd9348d83b",
-                    "expectedControlType": "Vector3",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
