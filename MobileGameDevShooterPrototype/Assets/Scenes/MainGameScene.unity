@@ -1552,7 +1552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ControlType: 0
   GameStarted: 0
-  bm: {fileID: 0}
+  bm: {fileID: 33072934153129539}
 --- !u!1 &640936307
 GameObject:
   m_ObjectHideFlags: 0
@@ -2504,14 +2504,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958356217}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.14780933, z: 0, w: 0.9890159}
   m_LocalPosition: {x: -0.00616, y: 1.3221, z: 0.90551}
   m_LocalScale: {x: 0.024076333, y: 0.008932047, z: 0.0089320475}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4387438963739488}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -17, z: 0}
 --- !u!1 &994490276
 GameObject:
   m_ObjectHideFlags: 0
@@ -6697,7 +6697,8 @@ GameObject:
   - component: {fileID: 640148552}
   - component: {fileID: 640148555}
   - component: {fileID: 33072934153129537}
-  - component: {fileID: 33072934153129538}
+  - component: {fileID: 33072934153129539}
+  - component: {fileID: 33072934153129540}
   m_Layer: 0
   m_Name: SM_Pawn_Weapon_Male_01
   m_TagString: Untagged
@@ -6789,7 +6790,26 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0.05, y: 0.97, z: 0}
---- !u!95 &33072934153129538
+--- !u!114 &33072934153129539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348288796093626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2abd10508588a94fb21e97ab41e2e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletSpawn: {fileID: 958356218}
+  IsFiring: 0
+  bullet: {fileID: 1314696372, guid: 4ddbbb05dc525af4aa04519c15154509, type: 3}
+  TimeBetweenShots: 0.3
+  BulletSpeed: 3
+  Damage: 10
+  Range: 100
+--- !u!95 &33072934153129540
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -6809,75 +6829,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1001 &3613495642363472890
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1567962406881087250, guid: 4ddbbb05dc525af4aa04519c15154509,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567962406881087250, guid: 4ddbbb05dc525af4aa04519c15154509,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.00903
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567962406881087250, guid: 4ddbbb05dc525af4aa04519c15154509,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.87997
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567962406881087250, guid: 4ddbbb05dc525af4aa04519c15154509,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.91349
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567962406881087250, guid: 4ddbbb05dc525af4aa04519c15154509,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.5997217
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567962406881087250, guid: 4ddbbb05dc525af4aa04519c15154509,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.01396141
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567962406881087250, guid: 4ddbbb05dc525af4aa04519c15154509,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7998702
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567962406881087250, guid: 4ddbbb05dc525af4aa04519c15154509,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.018620819
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567962406881087250, guid: 4ddbbb05dc525af4aa04519c15154509,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -0.747
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567962406881087250, guid: 4ddbbb05dc525af4aa04519c15154509,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -106.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 1567962406881087250, guid: 4ddbbb05dc525af4aa04519c15154509,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -2.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 2481338441767270022, guid: 4ddbbb05dc525af4aa04519c15154509,
-        type: 3}
-      propertyPath: m_Name
-      value: bullet
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4ddbbb05dc525af4aa04519c15154509, type: 3}
 --- !u!23 &4861449250909708359
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
 
             if (ControlType == 2)
             {
+                bm.IsFiring = true;
                 Vector2 LookInput = playerInput.actions["Look"].ReadValue<Vector2>();
                 Vector3 playerDirection = Vector3.right * LookInput.x + Vector3.forward * LookInput.y;
 
