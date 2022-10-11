@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+//Tutorial used: https://www.youtube.com/watch?v=UjkSFoLxesw&list=PLmBt5RqGsDudapyrfZjO3w1vRmQlAimP2&index=8&t=17s
+
 public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent;
@@ -23,12 +25,6 @@ public class EnemyAI : MonoBehaviour
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     private void Update()
