@@ -24,6 +24,8 @@ public class Spawner : MonoBehaviour
         if(enemyTimeCounter <= 0.0f)
         {
             enemyTimeCounter = timeBetweenEnemySpawns;
+
+            //Used document to get random point on navmesh https://docs.unity3d.com/ScriptReference/AI.NavMesh.SamplePosition.html
             Vector3 randomPoint = agent.transform.position + Random.insideUnitSphere * range;
 
             NavMeshHit hit;
