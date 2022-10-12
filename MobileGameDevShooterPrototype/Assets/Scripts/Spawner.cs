@@ -5,12 +5,11 @@ using UnityEngine.AI;
 
 public class Spawner : MonoBehaviour
 {
-
+    public PlayerController playerControl;
     public GameObject enemyPrefab;
     public float timeBetweenEnemySpawns = 1.0f;
     public float enemyTimeCounter;
     public float range = 10.0f;
-    public NavMeshAgent agent;
 
     private void SpawnEnemy(Vector3 _positionToSpawn)
     {
@@ -21,17 +20,25 @@ public class Spawner : MonoBehaviour
     {
         enemyTimeCounter -= Time.deltaTime;
 
-        if(enemyTimeCounter <= 0.0f)
+        if (playerControl.GameStarted)
         {
-            enemyTimeCounter = timeBetweenEnemySpawns;
-
-            //Used document to get random point on navmesh https://docs.unity3d.com/ScriptReference/AI.NavMesh.SamplePosition.html
-            Vector3 randomPoint = agent.transform.position + Random.insideUnitSphere * range;
-
-            NavMeshHit hit;
-            if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+            if (enemyTimeCounter <= 0.0f)
             {
-                SpawnEnemy(hit.position);
+                enemyTimeCounter = timeBetweenEnemySpawns;
+
+                bool PointFound = false;
+                while (!PointFound)
+                {
+                    //Used document to get random point on navmesh https://docs.unity3d.com/ScriptReference/AI.NavMesh.SamplePosition.html
+                    Vector3 randomPoint = enemyPrefab.GetComponent<NavMeshAgent>().transform.position + Random.insideUnitSphere * range;
+
+                    NavMeshHit hit;
+                    if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+                    {
+                        SpawnEnemy(hit.position);
+                        PointFound = true;
+                    }
+                }
             }
         }
     }

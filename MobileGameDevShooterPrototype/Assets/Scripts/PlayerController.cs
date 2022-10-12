@@ -8,12 +8,18 @@ public class PlayerController : MonoBehaviour
     //Integer to represent control type. Default is 2.
     //1: One Joystick with autoaim. 2: Two Joysticks no auto aim. 3: Gyro controls with auto aim.
     public int ControlType;
-    public bool GameStarted;
+    public bool GameStarted = false;
+    public int health = 100;
+    public Transform spawnPoint;
+    public ButtonManager buttonManager;
     public BulletManager bm;
+
+    private float distance;
+    private GameObject[] enemies;
+    private GameObject target;
 
     private CharacterController controller;
     private PlayerInput playerInput;
-    private Animator PlayerAnimator;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     private float playerSpeed = 2.0f;
@@ -25,11 +31,12 @@ public class PlayerController : MonoBehaviour
     {
         controller = gameObject.GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
-        PlayerAnimator = GetComponent<Animator>();
+        bm.IsFiring = true;
     }
 
     void FixedUpdate()
     {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (GameStarted)
         {
             if(ControlType == 1 || ControlType == 2)
@@ -48,11 +55,6 @@ public class PlayerController : MonoBehaviour
                 if (MovementVector != Vector3.zero)
                 {
                     gameObject.transform.position += MovementVector * Time.deltaTime * playerSpeed;
-                    PlayerAnimator.SetBool("IsWalking", true);
-                }
-                else
-                {
-                    PlayerAnimator.SetBool("IsWalking", false);
                 }
 
                 playerVelocity.y += gravityValue * Time.deltaTime;
@@ -61,7 +63,6 @@ public class PlayerController : MonoBehaviour
 
             if (ControlType == 2)
             {
-                bm.IsFiring = true;
                 Vector2 LookInput = playerInput.actions["Look"].ReadValue<Vector2>();
                 Vector3 playerDirection = Vector3.right * LookInput.x + Vector3.forward * LookInput.y;
 
@@ -83,15 +84,56 @@ public class PlayerController : MonoBehaviour
                 if (GyroVector != Vector3.zero)
                 {
                     gameObject.transform.position = GyroVector * Time.deltaTime * 1.0f;
-                    PlayerAnimator.SetBool("IsWalking", true);
-                }
-                else
-                {
-                    PlayerAnimator.SetBool("IsWalking", false);
                 }
 
                 playerVelocity.y += gravityValue * Time.deltaTime;
                 controller.Move(playerVelocity * Time.deltaTime);
+            }
+
+            if(ControlType == 1 || ControlType == 3)
+            {
+                distance = 20;
+                for (int i = 0; i < enemies.Length; i++)
+                {
+                    if (Vector2.Distance(this.transform.position, enemies[i].transform.position) < distance)
+                    {
+                        distance = Vector2.Distance(this.transform.position, enemies[i].transform.position);
+
+                        target = enemies[i];
+                    }
+
+                    //this prevents a nasty loop that causes the minimum range for a target to be chosen to become shorter and shorter
+                    if (Vector2.Distance(this.transform.position, enemies[i].transform.position) > distance)
+                    {
+                        distance = Vector2.Distance(this.transform.position, enemies[i].transform.position);
+                    }
+                }
+
+                if(target != null)
+                {
+                    Vector2 LookInput = new Vector2(target.transform.position.x, target.transform.position.z);
+                    Vector3 playerDirection = Vector3.right * LookInput.x + Vector3.forward * LookInput.y;
+
+                    if (LookInput.x != 0.0f || LookInput.y != 0.0f)
+                    {
+                        Quaternion newRotation = Quaternion.LookRotation(playerDirection);
+                        gameObject.transform.rotation = Quaternion.RotateTowards(gameObject.transform.rotation, newRotation, 200.0f * Time.deltaTime);
+                    }
+
+                    //gameObject.transform.LookAt(target.transform);
+                }
+            }
+
+            if (health <= 0)
+            {
+                transform.position = spawnPoint.position;
+                buttonManager.OpenMainMenu();
+                GameStarted = false;
+
+                GameObject[] others = (GameObject[])GameObject.FindGameObjectsWithTag("Enemy");
+                foreach (GameObject other in others)
+                { Destroy(other.gameObject); }
+                health = 100;
             }
         }
     }

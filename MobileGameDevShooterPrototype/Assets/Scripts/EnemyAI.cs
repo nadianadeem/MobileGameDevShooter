@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     public NavMeshAgent agent;
 
     public Transform player;
+    public PlayerController playerController;
 
     public LayerMask whatIsGround, whatIsPlayer;
 
@@ -40,6 +41,7 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         player = GameObject.Find("PlayerObj").transform;
+        playerController = GameObject.Find("PlayerObj").GetComponent<PlayerController>();
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -86,6 +88,7 @@ public class EnemyAI : MonoBehaviour
         if (!alreadyAttacked)
         {
             //Attack code here.
+            playerController.health -= 100;
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);

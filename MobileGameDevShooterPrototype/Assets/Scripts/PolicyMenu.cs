@@ -57,7 +57,7 @@ public class PolicyMenu : MonoBehaviour
         }
     }
 
-    private void OpenGDPRConsent()
+    public void OpenGDPRConsent()
     {
         if (PlayerPrefs.GetInt(policyKey, 0) == 1)
         {
@@ -67,17 +67,11 @@ public class PolicyMenu : MonoBehaviour
 
     private void OnMenuSimpleClose()
     {
-        Debug.LogWarning("Policy Accepted");
         PlayerPrefs.SetInt(policyKey, 1);
 
         if (PlayerPrefs.GetInt("FIRSTTIMEOPENING", 1) == 1)
         {
             OpenGDPRConsent();
         }
-    }
-
-    private void Update()
-    {
-        
     }
 }

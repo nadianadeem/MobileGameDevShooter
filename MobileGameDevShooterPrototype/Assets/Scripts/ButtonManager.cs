@@ -10,6 +10,7 @@ public class ButtonManager : MonoBehaviour
     public GameObject ShootingJoystick;
     public GameObject MovementJoystick;
     public GameObject GyroOption;
+    public GameObject timer;
 
     public GameObject MainMenu;
     public GameObject SettingsMenu;
@@ -25,6 +26,7 @@ public class ButtonManager : MonoBehaviour
         MovementJoystick.SetActive(false);
 
         SettingsMenu.SetActive(false);
+        timer.SetActive(false);
     }
 
     void SetControllerType(int InControlType)
@@ -69,6 +71,20 @@ public class ButtonManager : MonoBehaviour
         MainMenu.SetActive(false);
 
         PlayerControl.GameStarted = true;
+        Timer timerScript = timer.GetComponent<Timer>();
+        timerScript.ResetTimer();
+        timerScript.timerActive = true;
+        timer.SetActive(true);
+    }
+
+    public void OpenMainMenu()
+    {
+        timer.SetActive(false);
+        GameTitle.SetActive(true);
+        MainMenu.SetActive(true);
+
+        Timer timerScript = timer.GetComponent<Timer>();
+        timerScript.timerActive = false;
     }
 
     public void OpenSettingsMenu()
