@@ -55,7 +55,7 @@ public class Timer : MonoBehaviour
 
     public void ResetTimer()
     {
-        if(currentTime <= 0)
+        if(currentTime >= 0)
         {
             SendTimerEvent();
         }

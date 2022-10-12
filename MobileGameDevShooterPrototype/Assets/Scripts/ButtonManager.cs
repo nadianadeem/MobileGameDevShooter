@@ -72,7 +72,6 @@ public class ButtonManager : MonoBehaviour
 
         PlayerControl.GameStarted = true;
         Timer timerScript = timer.GetComponent<Timer>();
-        timerScript.ResetTimer();
         timerScript.timerActive = true;
         timer.SetActive(true);
     }
@@ -84,6 +83,7 @@ public class ButtonManager : MonoBehaviour
         MainMenu.SetActive(true);
 
         Timer timerScript = timer.GetComponent<Timer>();
+        timerScript.ResetTimer();
         timerScript.timerActive = false;
     }
 
