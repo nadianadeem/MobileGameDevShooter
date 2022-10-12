@@ -1079,6 +1079,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c10a94577d9de043a55c9ae584d2c48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpawner: {fileID: 1126809236}
+  difficultyIncrease: 25
   enemiesKilled: 0
   timerActive: 0
   currentTimeText: {fileID: 439032751}
@@ -3341,6 +3343,7 @@ MonoBehaviour:
   playerControl: {fileID: 640148555}
   enemyPrefab: {fileID: 7922977401670987390, guid: f8398350cf548e1409be97859b11db62,
     type: 3}
+  minimumTimeBetweenSpawns: 0.7
   timeBetweenEnemySpawns: 1
   enemyTimeCounter: 0
   range: 20

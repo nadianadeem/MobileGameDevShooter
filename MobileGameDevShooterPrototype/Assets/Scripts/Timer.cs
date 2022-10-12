@@ -11,6 +11,8 @@ using Unity.Services.Analytics;
 
 public class Timer : MonoBehaviour
 {
+    public Spawner enemySpawner;
+    public int difficultyIncrease = 25;
     public int enemiesKilled;
     public bool timerActive = false;
     float currentTime;
@@ -30,6 +32,12 @@ public class Timer : MonoBehaviour
             currentTime = currentTime + Time.deltaTime;
             TimeSpan time = TimeSpan.FromSeconds(currentTime);
             currentTimeText.text = time.ToString(@"mm\:ss");
+
+            if(currentTime <= difficultyIncrease && currentTime >= difficultyIncrease && enemySpawner.timeBetweenEnemySpawns >= enemySpawner.minimumTimeBetweenSpawns)
+            {
+                enemySpawner.timeBetweenEnemySpawns -= 0.2f;
+                difficultyIncrease += 30;
+            }
         }
     }
 

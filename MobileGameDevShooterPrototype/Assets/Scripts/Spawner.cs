@@ -7,7 +7,8 @@ public class Spawner : MonoBehaviour
 {
     public PlayerController playerControl;
     public GameObject enemyPrefab;
-    public float timeBetweenEnemySpawns = 1.0f;
+    public float minimumTimeBetweenSpawns = 0.7f;
+    public float timeBetweenEnemySpawns = 4.0f;
     public float enemyTimeCounter;
     public float range = 10.0f;
 
