@@ -43,14 +43,17 @@ public class Timer : MonoBehaviour
 
     public void SendTimerEvent()
     {
-#if ENABLE_CLOUD_SERVICES_ANALYTICS
-        Analytics.CustomEvent("playerDied", new Dictionary<string, object>
+        Dictionary<string, object> parameters = new Dictionary<string, object>()
         {
+            { "enemiesKilled", enemiesKilled },
             { "timeSurvived", Mathf.Floor(currentTime) },
-            { "timeSurvivedStr", currentTimeText.text },
-            { "enemiesKilled", enemiesKilled }
-        });
-#endif
+            { "timeSurvivedStr", currentTimeText.text }
+        };
+        // The ‘myEvent’ event will get queued up and sent every minute
+        AnalyticsService.Instance.CustomData("playerDied", parameters);
+
+        // Optional - You can call Events.Flush() to send the event immediately
+        AnalyticsService.Instance.Flush();
     }
 
     public void ResetTimer()
