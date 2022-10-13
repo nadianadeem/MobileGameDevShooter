@@ -1079,6 +1079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c10a94577d9de043a55c9ae584d2c48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  adShower: {fileID: 1779251319}
   enemySpawner: {fileID: 1126809236}
   difficultyIncrease: 25
   enemiesKilled: 0
@@ -5834,6 +5835,8 @@ GameObject:
   - component: {fileID: 1779251315}
   - component: {fileID: 1779251314}
   - component: {fileID: 1779251318}
+  - component: {fileID: 1779251319}
+  - component: {fileID: 1779251320}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5948,6 +5951,32 @@ MonoBehaviour:
   SettingsMenu: {fileID: 152737537}
   ControllerText: {fileID: 1100972035}
   PlayerControl: {fileID: 640148555}
+--- !u!114 &1779251319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779251313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e51c30cd83ab543b704f2a697e1463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _androidGameId: 4968337
+  _testMode: 1
+--- !u!114 &1779251320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779251313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eec8df975c9f79b4cafb85da1f7c918d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1780567542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6242,7 +6271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7686275, g: 0.7686275, b: 0.7686275, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

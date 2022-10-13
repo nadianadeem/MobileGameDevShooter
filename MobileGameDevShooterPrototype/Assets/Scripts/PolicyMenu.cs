@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Advertisements;
 
 public class PolicyMenu : MonoBehaviour
 {
@@ -33,12 +34,21 @@ public class PolicyMenu : MonoBehaviour
             // You can show personalized ads to the user
             Debug.LogWarning("Can show personalised Ads");
             PlayerPrefs.SetInt(personalisedAdsKey, 1);
+
+            MetaData userMetaData = new MetaData("user");
+            userMetaData.Set("nonbehavioral", "false");
+            Advertisement.SetMetaData(userMetaData);
         }
         else
         {
             // Don't show personalized ads to the user
             Debug.LogWarning("Cannot show personalised Ads");
             PlayerPrefs.SetInt(personalisedAdsKey, 0);
+
+            // If the user opts out of personalized ads:
+            MetaData userMetaData = new MetaData("user");
+            userMetaData.Set("nonbehavioral", "true");
+            Advertisement.SetMetaData(userMetaData);
         }
     }
 
@@ -54,6 +64,25 @@ public class PolicyMenu : MonoBehaviour
                 SetTermsOfServiceLink("https://www.termsofservicegenerator.net/live.php?token=oBIQSgaffKcvF7xA3o3ehxqf4uwDlvB8").
                 SetPrivacyPolicyLink("https://unity.com/legal/privacy-policy"),
                 OnMenuSimpleClose);
+
+            PlayerPrefs.SetInt("FIRSTTIMEOPENING", 0);
+        }
+        else
+        {
+            if(PlayerPrefs.GetInt(personalisedAdsKey, 0) == 1)
+            {
+                Debug.LogWarning("Can show personalised Ads");
+                MetaData userMetaData = new MetaData("user");
+                userMetaData.Set("nonbehavioral", "false");
+                Advertisement.SetMetaData(userMetaData);
+            }
+            else
+            {
+                Debug.LogWarning("Cannot show personalised Ads");
+                MetaData userMetaData = new MetaData("user");
+                userMetaData.Set("nonbehavioral", "true");
+                Advertisement.SetMetaData(userMetaData);
+            }
         }
     }
 
