@@ -12,6 +12,7 @@ using Unity.Services.Analytics;
 public class Timer : MonoBehaviour
 {
     public AdsInitialiser adShower;
+    public Button RewardedAdButton;
     public Spawner enemySpawner;
     public int difficultyIncrease = 25;
     public int enemiesKilled;
@@ -24,6 +25,7 @@ public class Timer : MonoBehaviour
     {
         currentTime = 0;
         adShower.LoadInterstitialAd();
+        adShower.LoadRewardedAd(RewardedAdButton);
     }
 
     // Update is called once per frame

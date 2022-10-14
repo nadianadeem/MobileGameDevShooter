@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public Transform spawnPoint;
     public ButtonManager buttonManager;
     public BulletManager bm;
+    public bool watchedRewardedAd;
 
     private float distance;
     private GameObject[] enemies;
@@ -32,6 +33,12 @@ public class PlayerController : MonoBehaviour
         controller = gameObject.GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
         bm.IsFiring = true;
+    }
+
+    public void ResetPlayerValuesAfterAd()
+    {
+        health = 100;
+        GameStarted = true;
     }
 
     void FixedUpdate()
@@ -127,7 +134,8 @@ public class PlayerController : MonoBehaviour
             if (health <= 0)
             {
                 transform.position = spawnPoint.position;
-                buttonManager.OpenMainMenu();
+                GameStarted = false;
+                buttonManager.OpenDeathMenu();
                 GameStarted = false;
 
                 GameObject[] others = (GameObject[])GameObject.FindGameObjectsWithTag("Enemy");

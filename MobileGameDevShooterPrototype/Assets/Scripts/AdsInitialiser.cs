@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Advertisements;
 
 public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLoadListener, IUnityAdsShowListener
 {
+    Button AdButton;
     [SerializeField] string _androidGameId;
     [SerializeField] bool _testMode = true;
+    public ButtonManager buttonManager;
 
     void Awake()
     {
@@ -40,12 +43,44 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
         // Note that if the ad content wasn't previously loaded, this method will fail
         Debug.Log("Showing Ad: " + _androidGameId);
         Advertisement.Show("Interstitial_Android", this);
+        Advertisement.Load("Interstitial_Android", this);
+    }
+
+    // Load content to the Ad Unit:
+    public void LoadRewardedAd(Button _AdButton)
+    {
+        AdButton = _AdButton;
+        Debug.Log("Loading Ad: " + _androidGameId);
+        Advertisement.Load("Rewarded_Android", this);
+
+    }
+
+    // Show the loaded content in the Ad Unit:
+    public void ShowRewardedAd()
+    {
+        // Note that if the ad content wasn't previously loaded, this method will fail
+        Debug.Log("Showing Ad: " + _androidGameId);
+        // Disable the button:
+        AdButton.interactable = false;
+        // Then show the ad:
+        Advertisement.Show("Rewarded_Android", this);
     }
 
     // Implement Load Listener and Show Listener interface methods: 
     public void OnUnityAdsAdLoaded(string adUnitId)
     {
-        // Optionally execute code if the Ad Unit successfully loads content.
+        if(GameObject.Find("PlayerObj").GetComponent<PlayerController>().watchedRewardedAd == false)
+        {
+            Debug.Log("Ad Loaded: " + adUnitId);
+            // Optionally execute code if the Ad Unit successfully loads content.
+            if (adUnitId.Equals("Rewarded_Android"))
+            {
+                // Configure the button to call the ShowAd() method when clicked:
+                AdButton.onClick.AddListener(ShowRewardedAd);
+                // Enable the button for users to click:
+                AdButton.interactable = true;
+            }
+        }
     }
 
     public void OnUnityAdsFailedToLoad(string adUnitId, UnityAdsLoadError error, string message)
@@ -58,9 +93,23 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
     {
         Debug.Log($"Error showing Ad Unit {adUnitId}: {error.ToString()} - {message}");
         // Optionally execute code if the Ad Unit fails to show, such as loading another ad.
+        Advertisement.Load(adUnitId, this);
     }
 
     public void OnUnityAdsShowStart(string adUnitId) { }
     public void OnUnityAdsShowClick(string adUnitId) { }
-    public void OnUnityAdsShowComplete(string adUnitId, UnityAdsShowCompletionState showCompletionState) { }
+    public void OnUnityAdsShowComplete(string adUnitId, UnityAdsShowCompletionState showCompletionState) 
+    {
+        if (adUnitId.Equals("Rewarded_Android") && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
+        {
+            Debug.Log("Unity Ads Rewarded Ad Completed");
+            // Grant a reward.
+            buttonManager.CloseDeathMenu();
+            GameObject.Find("PlayerObj").GetComponent<PlayerController>().ResetPlayerValuesAfterAd();
+            GameObject.Find("PlayerObj").GetComponent<PlayerController>().watchedRewardedAd = true;
+        }
+
+        // Load another ad:
+        Advertisement.Load("Rewarded_Android", this);
+    }
 }

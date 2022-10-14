@@ -12,6 +12,7 @@ public class ButtonManager : MonoBehaviour
     public GameObject GyroOption;
     public GameObject timer;
 
+    public GameObject DeathMenu;
     public GameObject MainMenu;
     public GameObject SettingsMenu;
 
@@ -27,6 +28,7 @@ public class ButtonManager : MonoBehaviour
 
         SettingsMenu.SetActive(false);
         timer.SetActive(false);
+        DeathMenu.SetActive(false);
     }
 
     void SetControllerType(int InControlType)
@@ -78,13 +80,30 @@ public class ButtonManager : MonoBehaviour
 
     public void OpenMainMenu()
     {
+        ShootingJoystick.SetActive(false);
+        MovementJoystick.SetActive(false);
         timer.SetActive(false);
         GameTitle.SetActive(true);
         MainMenu.SetActive(true);
+    }
 
+    public void OpenDeathMenu()
+    {
+        DeathMenu.SetActive(true);
+    }
+
+    public void CloseDeathMenu()
+    {
+        DeathMenu.SetActive(false);
+    }
+
+    public void ExitGame()
+    {
+        DeathMenu.SetActive(false);
         Timer timerScript = timer.GetComponent<Timer>();
         timerScript.ResetTimer();
         timerScript.timerActive = false;
+        OpenMainMenu();
     }
 
     public void OpenSettingsMenu()
