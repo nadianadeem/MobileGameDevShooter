@@ -6335,7 +6335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _androidGameId: 4968337
   _testMode: 0
-  buttonManager: {fileID: 0}
+  buttonManager: {fileID: 1779251318}
 --- !u!114 &1779251320
 MonoBehaviour:
   m_ObjectHideFlags: 0

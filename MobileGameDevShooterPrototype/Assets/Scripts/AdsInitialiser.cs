@@ -9,9 +9,28 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
     [SerializeField] bool _testMode = true;
     public ButtonManager buttonManager;
 
+    private PlayerController playerController;
+    private bool grantReward = false;
+
     void Awake()
     {
         InitializeAds();
+    }
+
+    void Start()
+    {
+        playerController = GameObject.Find("PlayerObj").GetComponent<PlayerController>();
+    }
+
+    void Update()
+    {
+        if(grantReward)
+        {
+            buttonManager.CloseDeathMenu();
+            playerController.ResetPlayerValuesAfterAd();
+            playerController.watchedRewardedAd = true;
+            grantReward = false;
+        }
     }
 
     public void InitializeAds()
@@ -69,7 +88,7 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
     // Implement Load Listener and Show Listener interface methods: 
     public void OnUnityAdsAdLoaded(string adUnitId)
     {
-        if(GameObject.Find("PlayerObj").GetComponent<PlayerController>().watchedRewardedAd == false)
+        if(playerController.watchedRewardedAd == false)
         {
             Debug.Log("Ad Loaded: " + adUnitId);
             // Optionally execute code if the Ad Unit successfully loads content.
@@ -104,9 +123,8 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
         {
             Debug.Log("Unity Ads Rewarded Ad Completed");
             // Grant a reward.
-            buttonManager.CloseDeathMenu();
-            GameObject.Find("PlayerObj").GetComponent<PlayerController>().ResetPlayerValuesAfterAd();
-            GameObject.Find("PlayerObj").GetComponent<PlayerController>().watchedRewardedAd = true;
+            grantReward = true;
+            AdButton.interactable = false;
         }
 
         // Load another ad:
