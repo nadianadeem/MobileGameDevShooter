@@ -19,6 +19,8 @@ public class ButtonManager : MonoBehaviour
     public Text ControllerText;
     public PlayerController PlayerControl;
 
+    public Button AdButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +78,7 @@ public class ButtonManager : MonoBehaviour
         Timer timerScript = timer.GetComponent<Timer>();
         timerScript.timerActive = true;
         timer.SetActive(true);
+        AdButton.interactable = true;
     }
 
     public void OpenMainMenu()
