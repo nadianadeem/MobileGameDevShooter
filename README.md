@@ -8,6 +8,17 @@
 <p> The player can either use gyro, one joystick or two joysticks to traverse the map and shoot the player's weapon. For menu traversal the player can use touch as they usually would. With one joystick or gyro the player will use auto aim at the enemies which shall allow the enemy to focus more on movement than aim. To give the freedom of choice to the user. The variety of input is there so people do not get turned away from the a single control scheme they may not like. It is also great for accessibility as some people may have trouble controlling two joysticks making one joystick or gyro a great option.</p>
 <img src = "photos/Saloon Survival Icon.png" title ="Saloon Survival Icon">
 
+<h3> Powerups & "Powerdowns"! </h3>
+<p> The power ups I have planned are
+-> Make timer quicker temporarily.
+-> Movement speed temporary increase.
+-> Bullet speed temporary increase.
+
+The "Powerdowns" I have planned are
+-> Make timer slower temporarily.
+-> Movement speed temporary decrease.
+-> Bullet speed temporary decrease.</p> 
+
 <h3> Data Persistence </h3>
 <p> The game shall keep track of your highscore across play sessions as well as whether it is your first time playing so privacy policies and terms of service are not shown every time you open the app </p>
 
