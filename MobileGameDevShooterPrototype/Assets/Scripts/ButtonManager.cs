@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class ButtonManager : MonoBehaviour
 
     public Button AdButton;
 
+    private Timer timerScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +36,7 @@ public class ButtonManager : MonoBehaviour
         timer.SetActive(false);
         DeathMenu.SetActive(false);
 
-        highscore.text = "HIGHSCORE - " + PlayerPrefs.GetFloat("TimeSurvived").ToString();
+        highscore.text = "HIGHSCORE - " + TimeSpan.FromSeconds(PlayerPrefs.GetFloat("TimeSurvived")).ToString(@"mm\:ss");
     }
 
     void SetControllerType(int InControlType)
@@ -78,7 +81,7 @@ public class ButtonManager : MonoBehaviour
         MainMenu.SetActive(false);
 
         PlayerControl.GameStarted = true;
-        Timer timerScript = timer.GetComponent<Timer>();
+        timerScript = timer.GetComponent<Timer>();
         timerScript.timerActive = true;
         timer.SetActive(true);
         AdButton.interactable = true;
@@ -91,17 +94,19 @@ public class ButtonManager : MonoBehaviour
         timer.SetActive(false);
         GameTitle.SetActive(true);
         MainMenu.SetActive(true);
-        highscore.text = "HIGHSCORE - " + PlayerPrefs.GetFloat("TimeSurvived").ToString();
+        highscore.text = "HIGHSCORE - " + TimeSpan.FromSeconds(PlayerPrefs.GetFloat("TimeSurvived")).ToString(@"mm\:ss");
     }
 
     public void OpenDeathMenu()
     {
         DeathMenu.SetActive(true);
+        timerScript.timerActive = false;
     }
 
     public void CloseDeathMenu()
     {
         DeathMenu.SetActive(false);
+        timerScript.timerActive = true;
     }
 
     public void ExitGame()

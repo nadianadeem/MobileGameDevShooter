@@ -65,7 +65,10 @@ public class Timer : MonoBehaviour
         if(currentTime >= 0)
         {
             SendTimerEvent();
-            PlayerPrefs.SetFloat("TimeSurvived", currentTime);
+            if(currentTime > PlayerPrefs.GetFloat("TimeSurvived"))
+            {
+                PlayerPrefs.SetFloat("TimeSurvived", currentTime);
+            }
             adShower.ShowInterstitialAd();
         }
         
