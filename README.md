@@ -1,7 +1,8 @@
 <h1> Saloon Survival - Mobile Top Down Shooter</h1>
 
 <h2> Player Design </h2>
-<p> The main character for the game will be a cowboy with a single pistol trying to survive as long as possible in the wild west, as the only survivor of the town being invaded by a swarm of robbers. </p>
+<p> The main character for the game will be a cowboy with a single pistol trying to survive as long as possible in the wild west, you are the only cowboy left in town with a very big bounty on your head!
+ </p>
 
 <h3> Player Input </h3>
 <p> The player can either use gyro, one joystick or two joysticks to traverse the map and shoot the player's weapon. For menu traversal the player can use touch as they usually would. With one joystick or gyro the player will use auto aim at the enemies which shall allow the enemy to focus more on movement than aim. To give the freedom of choice to the user. The variety of input is there so people do not get turned away from the a single control scheme they may not like. It is also great for accessibility as some people may have trouble controlling two joysticks making one joystick or gyro a great option.</p>
