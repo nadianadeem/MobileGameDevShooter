@@ -16,6 +16,7 @@ public class ButtonManager : MonoBehaviour
     public GameObject MainMenu;
     public GameObject SettingsMenu;
 
+    public Text highscore;
     public Text ControllerText;
     public PlayerController PlayerControl;
 
@@ -31,6 +32,8 @@ public class ButtonManager : MonoBehaviour
         SettingsMenu.SetActive(false);
         timer.SetActive(false);
         DeathMenu.SetActive(false);
+
+        highscore.text = "HIGHSCORE - " + PlayerPrefs.GetFloat("TimeSurvived").ToString();
     }
 
     void SetControllerType(int InControlType)
@@ -88,6 +91,7 @@ public class ButtonManager : MonoBehaviour
         timer.SetActive(false);
         GameTitle.SetActive(true);
         MainMenu.SetActive(true);
+        highscore.text = "HIGHSCORE - " + PlayerPrefs.GetFloat("TimeSurvived").ToString();
     }
 
     public void OpenDeathMenu()

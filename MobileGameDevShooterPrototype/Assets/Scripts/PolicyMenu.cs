@@ -57,6 +57,7 @@ public class PolicyMenu : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("FIRSTTIMEOPENING", 1) == 1)
         {
+            PlayerPrefs.SetInt("TimeSurvived", 0);
             var accepted = PlayerPrefs.GetInt(policyKey, 0) == 1;
 
             // Show a dialog that prompts the user to accept the Terms of Service and Privacy Policy
