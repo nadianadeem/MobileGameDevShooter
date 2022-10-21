@@ -22,6 +22,29 @@ The "Powerdowns" I have planned are
 <h3> Data Persistence </h3>
 <p> The game shall keep track of your highscore across play sessions as well as whether it is your first time playing so privacy policies and terms of service are not shown every time you open the app </p>
 
+<h2> Framework Design </h2>
+
+<h3> User device's time </h3>
+<p>The user device's time will be used to change the lighting on the map. For example, it shall be dark on the map at night and light in the day. </p>
+
+<h3> Handsets Gyro ability </h3>
+<p>I use the gyro ability of phone to control the player character. The character will use auto aim when in gyro mode so the player only has to focus on movement. </p>
+
+<h3> Unity Analytics </h3>
+<p>Unity analytics is used to collect user's game data. This shall consist of how many people are watching an advert to continue, as well as how long users are surviving and how many enemies they are killing in a game session. As well as this Unity collected standard data such as device type, time and the devices operating system. </p>
+
+<h3> Unity Ads </h3>
+<p> Unity ads is used to monitise the game by showing an advert at the end of a user's play session of the game. In addition to this, player's can watch an advert to get a second life and lengthen their high score by being rewarded with a second life when watching an advert. To not allow exploitation this can only be done one per game loop, so people cannot infinitely watch advert to lengthen their time survived. </p>
+
+<h3> Google Play Services </h3>
+<p> Google Play Services is used so the game can have achievements and a leaderboard for the top time survived, as well as enemies killed. This is used to give user's something to aim for rather than playing aimlessly. </p>
+
+<h4> Leaderboards </h4>
+<p> To see players that have survived the longest across playing countries. </p>
+
+<h4> Achievements </h4>
+<p> To keep player engagement with other mechanics rather than relying on competition between people. -> 100, 200, 500 and 1000 enemies killed. ->Survive 30 seconds, 1 minute, 2 minutes and 5 minutes. (Times can change depending on final playtesting)
+
 <h2> Enemy Design </h2>
 <p> I shall have two types of enemy, one with be quicker than the other and the other shall have more health. This is to combat the potential boredom of just fighting one character. In addition this, I do aim to have a propotion of the enemies shooting weapons too, so the enemies can do melee and ranged attacks, yet again to combat potential the game being stagnant. </p>
 
@@ -38,17 +61,3 @@ The "Powerdowns" I have planned are
 <img src = "photos/MapTown.png" title ="Final Map Design, town area">
 <img src = "photos/MapWild.png" title ="Final Map Design, wild area">
 <img src = "photos/MapTrain.png" title ="Final Map Design, train area">
-
-<h2> Framework Design </h2>
-
-<h3> Handsets Gyro ability </h3>
-I use the gyro ability of phone to control the player character. The character will use auto aim when in gyro mode so the player only has to focus on movement.
-
-<h3> Unity Analytics </h3>
-<p>Unity analytics is used to collect user's game data. This shall consist of how many people are watching an advert to continue, as well as how long users are surviving and how many enemies they are killing in a game session. As well as this Unity collected standard data such as device type, time and the devices operating system. </p>
-
-<h3> Unity Ads </h3>
-<p> Unity ads is used to monitise the game by showing an advert at the end of a user's play session of the game. In addition to this, player's can watch an advert to get a second life and lengthen their high score by being rewarded with a second life when watching an advert. To not allow exploitation this can only be done one per game loop, so people cannot infinitely watch advert to lengthen their time survived. </p>
-
-<h3> Google Play Services </h3>
-<p> Google Play Services is used so the game can have achievements and a leaderboard for the top time survived, as well as enemies killed. This is used to give user's something to aim for rather than playing aimlessly. </p>
