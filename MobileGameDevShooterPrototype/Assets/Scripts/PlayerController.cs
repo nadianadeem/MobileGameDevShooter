@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public ButtonManager buttonManager;
     public BulletManager bm;
     public bool watchedRewardedAd;
+    public float playerSpeed = 2.0f;
 
     private float distance;
     private GameObject[] enemies;
@@ -23,7 +24,6 @@ public class PlayerController : MonoBehaviour
     private PlayerInput playerInput;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
-    private float playerSpeed = 2.0f;
     private float gravityValue = -9.81f;
     float RotY;
     float RotX;
