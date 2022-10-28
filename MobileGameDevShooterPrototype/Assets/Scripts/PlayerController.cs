@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public BulletManager bm;
     public bool watchedRewardedAd;
     public float playerSpeed = 2.0f;
+    public Animator playerAnimator;
 
     private float distance;
     private GameObject[] enemies;
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         controller = gameObject.GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
+        playerAnimator = gameObject.GetComponent<Animator>();
         bm.IsFiring = true;
     }
 
@@ -62,6 +64,11 @@ public class PlayerController : MonoBehaviour
                 if (MovementVector != Vector3.zero)
                 {
                     gameObject.transform.position += MovementVector * Time.deltaTime * playerSpeed;
+                    playerAnimator.SetBool("IsWalking", true);
+                }
+                else
+                {
+                    playerAnimator.SetBool("IsWalking", false);
                 }
 
                 playerVelocity.y += gravityValue * Time.deltaTime;
@@ -126,8 +133,6 @@ public class PlayerController : MonoBehaviour
                         Quaternion newRotation = Quaternion.LookRotation(playerDirection);
                         gameObject.transform.rotation = Quaternion.RotateTowards(gameObject.transform.rotation, newRotation, 200.0f * Time.deltaTime);
                     }
-
-                    //gameObject.transform.LookAt(target.transform);
                 }
             }
 
