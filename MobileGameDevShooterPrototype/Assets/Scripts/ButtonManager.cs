@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System;
+using GooglePlayGames;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -58,6 +59,16 @@ public class ButtonManager : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    public void ShowLeaderboard()
+    {
+        PlayGamesPlatform.Instance.ShowLeaderboardUI("CggIu67eoggQAhAC");
+    }
+
+    public void ShowAchievements()
+    {
+        Social.ShowAchievementsUI();
     }
 
     public void StartGame()
