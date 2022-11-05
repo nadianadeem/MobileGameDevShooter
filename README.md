@@ -28,7 +28,7 @@ The "Powerdowns" I have planned are
 <p>The user device's time will be used to change the lighting on the map. For example, it shall be dark on the map at night and light in the day. </p>
 
 <h3> Handsets Gyro ability </h3>
-<p>I use the gyro ability of phone to control the player character. The character will use auto aim when in gyro mode so the player only has to focus on movement. </p>
+<p>I use the gyro ability of phone to control the player character. The character will use auto aim when in gyro mode so the player only has to focus on movement. This shall also be used as a "shake to start" feature. </p>
 
 <h3> Unity Analytics </h3>
 <p>Unity analytics is used to collect user's game data. This shall consist of how many people are watching an advert to continue, as well as how long users are surviving and how many enemies they are killing in a game session. As well as this Unity collected standard data such as device type, time and the devices operating system. </p>
@@ -43,7 +43,7 @@ The "Powerdowns" I have planned are
 <p> To see players that have survived the longest across playing countries. </p>
 
 <h4> Achievements </h4>
-<p> To keep player engagement with other mechanics rather than relying on competition between people. -> 100, 200, 500 and 1000 enemies killed. ->Survive 30 seconds, 1 minute, 2 minutes and 5 minutes. (Times can change depending on final playtesting)
+<p> To keep player engagement with other mechanics rather than relying on competition between people. -> 100, 200, 300, 400 and 500 enemies killed. (Times can change depending on final playtesting)
 
 <h2> Enemy Design </h2>
 <p> I shall have two types of enemy, one with be quicker than the other and the other shall have more health. This is to combat the potential boredom of just fighting one character. In addition this, I do aim to have a propotion of the enemies shooting weapons too, so the enemies can do melee and ranged attacks, yet again to combat potential the game being stagnant. </p>
