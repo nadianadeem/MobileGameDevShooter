@@ -126,7 +126,8 @@ public class Timer : MonoBehaviour
             PlayGamesPlatform.Instance.ReportProgress("CggIu67eoggQAhAG.", 100.0f, AchievementCallback);
         }
 
-        Social.ReportScore((long)currentTime, "CggIu67eoggQAhAC", (bool success) => {});
+        TimeSpan time = TimeSpan.FromSeconds(currentTime);
+        Social.ReportScore((long)time.TotalMinutes, "CggIu67eoggQAhAC", (bool success) => {});
     }
 
     public void ResetTimer()

@@ -18,11 +18,11 @@ public class BulletController : MonoBehaviour
         transform.Translate(Vector3.forward * Speed * Time.deltaTime);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         if( collision.gameObject.tag == "Enemy")
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<EnemyAI>().isDead = true;
             GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>().enemiesKilled += 1;
         }
     }

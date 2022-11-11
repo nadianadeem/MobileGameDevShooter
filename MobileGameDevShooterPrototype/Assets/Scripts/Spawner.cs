@@ -36,8 +36,11 @@ public class Spawner : MonoBehaviour
                     NavMeshHit hit;
                     if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
                     {
-                        SpawnEnemy(hit.position);
-                        PointFound = true;
+                        if(Vector3.Distance(playerControl.transform.position, hit.position) > 5f)
+                        {
+                            SpawnEnemy(hit.position);
+                            PointFound = true;
+                        }
                     }
                 }
             }

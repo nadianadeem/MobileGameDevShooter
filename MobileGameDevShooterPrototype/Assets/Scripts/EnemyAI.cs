@@ -8,6 +8,7 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent;
+    public Animator enemyAnimator;
 
     public Transform player;
     public PlayerController playerController;
@@ -22,6 +23,7 @@ public class EnemyAI : MonoBehaviour
     //Attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
+    public bool isDead = false;
 
     //States
     public float sightRange, attackRange;
@@ -33,9 +35,21 @@ public class EnemyAI : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInAttackRange && !playerInSightRange) Patrolling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInSightRange && playerInAttackRange) AttackPlayer();
+        if (!isDead)
+        {
+            if (!playerInAttackRange && !playerInSightRange) Patrolling();
+            if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+            if (playerInSightRange && playerInAttackRange) AttackPlayer();
+        }
+        else
+        {
+            agent.SetDestination(transform.position);
+            enemyAnimator.SetTrigger("Die");
+            if (enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Death") && enemyAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     private void Awake()
@@ -78,17 +92,35 @@ public class EnemyAI : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
+        enemyAnimator.SetBool("IsRunning", true);
     }
 
     private void AttackPlayer()
     {
+        enemyAnimator.SetBool("IsRunning", false);
         agent.SetDestination(transform.position);
         transform.LookAt(player);
 
         if (!alreadyAttacked)
         {
+            int randomInt = Random.Range(1, 5);
+            switch (randomInt)
+            {
+                case 1:
+                    enemyAnimator.SetTrigger("ElbowPunch");
+                    break;
+                case 2:
+                    enemyAnimator.SetTrigger("Uppercut");
+                    break;
+                case 3:
+                    enemyAnimator.SetTrigger("Punching");
+                    break;
+                case 4:
+                    enemyAnimator.SetTrigger("CrossPunch");
+                    break;
+            }
             //Attack code here.
-            playerController.health -= 100;
+            playerController.health -= 20;
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);

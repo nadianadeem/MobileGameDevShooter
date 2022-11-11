@@ -63,12 +63,25 @@ public class PlayerController : MonoBehaviour
 
                 if (MovementVector != Vector3.zero)
                 {
+                    float angleBetweenVectors = Vector3.Angle(gameObject.transform.position.normalized, this.transform.forward);
+
+                    if (angleBetweenVectors > 45)
+                    {
+                        playerAnimator.SetBool("IsWalkingBackwards", true); // reverse
+                        playerAnimator.SetBool("IsWalkingForwards", false);
+                    }
+                    else
+                    {
+                        playerAnimator.SetBool("IsWalkingBackwards", false); // forwards
+                        playerAnimator.SetBool("IsWalkingForwards", true);
+                    }
+
                     gameObject.transform.position += MovementVector * Time.deltaTime * playerSpeed;
-                    playerAnimator.SetBool("IsWalking", true);
                 }
                 else
                 {
-                    playerAnimator.SetBool("IsWalking", false);
+                    playerAnimator.SetBool("IsWalkingForwards", false);
+                    playerAnimator.SetBool("IsWalkingBackwards", false);
                 }
 
                 playerVelocity.y += gravityValue * Time.deltaTime;
