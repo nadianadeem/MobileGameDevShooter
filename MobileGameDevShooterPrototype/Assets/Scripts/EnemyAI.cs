@@ -120,7 +120,7 @@ public class EnemyAI : MonoBehaviour
                     break;
             }
             //Attack code here.
-            playerController.health -= 20;
+            playerController.health -= 100;
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);

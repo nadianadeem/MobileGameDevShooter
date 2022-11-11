@@ -127,7 +127,7 @@ public class Timer : MonoBehaviour
         }
 
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
-        Social.ReportScore((long)time.TotalMinutes, "CggIu67eoggQAhAC", (bool success) => {});
+        Social.ReportScore((long)time.TotalMilliseconds, "CggIu67eoggQAhAC", (bool success) => {});
     }
 
     public void ResetTimer()
