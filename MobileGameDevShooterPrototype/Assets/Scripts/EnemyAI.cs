@@ -37,9 +37,8 @@ public class EnemyAI : MonoBehaviour
 
         if (!isDead)
         {
-            if (!playerInAttackRange && !playerInSightRange) Patrolling();
-            if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-            if (playerInSightRange && playerInAttackRange) AttackPlayer();
+            if (!playerInAttackRange) ChasePlayer();
+            if (playerInAttackRange) AttackPlayer();
         }
         else
         {
@@ -92,6 +91,7 @@ public class EnemyAI : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
+        agent.transform.LookAt(player.position);
         enemyAnimator.SetBool("IsRunning", true);
     }
 
