@@ -1,6 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
+using Unity.Services.Analytics;
 
 public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLoadListener, IUnityAdsShowListener
 {
@@ -26,6 +30,12 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
     {
         if(grantReward)
         {
+            Dictionary<string, object> parameters = new Dictionary<string, object>() {};
+            Analytics.CustomEvent("WatchedAdForLife");
+
+            // Optional - You can call Events.Flush() to send the event immediately
+            AnalyticsService.Instance.Flush();
+
             buttonManager.CloseDeathMenu();
             playerController.ResetPlayerValuesAfterAd();
             playerController.watchedRewardedAd = true;

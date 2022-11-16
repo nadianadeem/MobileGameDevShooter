@@ -75,10 +75,9 @@ public class Timer : MonoBehaviour
             { "timeSurvived", Mathf.Floor(currentTime) },
             { "timeSurvivedStr", currentTimeText.text }
         };
-        // The ‘myEvent’ event will get queued up and sent every minute
+
         AnalyticsService.Instance.CustomData("playerDied", parameters);
 
-        // Optional - You can call Events.Flush() to send the event immediately
         AnalyticsService.Instance.Flush();
 
         if(isGoogleServiceEnabled && enemiesKilled >= 100)
