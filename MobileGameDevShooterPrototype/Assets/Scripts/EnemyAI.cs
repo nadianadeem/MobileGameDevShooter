@@ -48,7 +48,7 @@ public class EnemyAI : MonoBehaviour
             agent.SetDestination(transform.position);
             enemyAnimator.SetTrigger("Die");
 
-            if (enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Death") && enemyAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+            if (enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
             {
                 Destroy(gameObject);
             }
