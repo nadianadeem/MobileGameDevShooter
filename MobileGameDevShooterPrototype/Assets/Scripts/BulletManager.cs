@@ -34,6 +34,7 @@ public class BulletManager : MonoBehaviour
                 ShotCounter = TimeBetweenShots;
                 BulletController NewBullet = Instantiate(bullet, BulletSpawn.position, BulletSpawn.rotation) as BulletController;
                 NewBullet.Speed = BulletSpeed;
+                GameObject.FindGameObjectWithTag("Sound").GetComponent<SceneSoundManager>().PlaySoundUnManaged(0);
             }
         }
         else

@@ -22,8 +22,26 @@ public class BulletController : MonoBehaviour
     {
         if( collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyAI>().isDead = true;
-            GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>().enemiesKilled += 1;
+            if (!collision.gameObject.GetComponent<EnemyAI>().isDead)
+            {
+                collision.gameObject.GetComponent<EnemyAI>().isDead = true;
+                int randomInt = Random.Range(1, 4);
+
+                switch (randomInt)
+                {
+                    case 1:
+                        GameObject.FindGameObjectWithTag("Sound").GetComponent<SceneSoundManager>().PlaySoundUnManaged(1);
+                        break;
+                    case 2:
+                        GameObject.FindGameObjectWithTag("Sound").GetComponent<SceneSoundManager>().PlaySoundUnManaged(5);
+                        break;
+                    case 3:
+                        GameObject.FindGameObjectWithTag("Sound").GetComponent<SceneSoundManager>().PlaySoundUnManaged(6);
+                        break;
+                }
+
+                GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>().enemiesKilled += 1;
+            }
         }
     }
 

@@ -23,11 +23,14 @@ public class EnemyAI : MonoBehaviour
     //Attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
+    public int AttackDamage = 20;
     public bool isDead = false;
 
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
+
+    private SceneSoundManager soundManagement;
 
     // Update is called once per frame
     private void Update()
@@ -44,6 +47,7 @@ public class EnemyAI : MonoBehaviour
         {
             agent.SetDestination(transform.position);
             enemyAnimator.SetTrigger("Die");
+
             if (enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Death") && enemyAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
                 Destroy(gameObject);
@@ -56,6 +60,7 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.Find("PlayerObj").transform;
         playerController = GameObject.Find("PlayerObj").GetComponent<PlayerController>();
         agent = GetComponent<NavMeshAgent>();
+        soundManagement = GameObject.FindGameObjectWithTag("Sound").GetComponent<SceneSoundManager>();
     }
 
     private void Patrolling()
@@ -108,19 +113,23 @@ public class EnemyAI : MonoBehaviour
             {
                 case 1:
                     enemyAnimator.SetTrigger("ElbowPunch");
+                    soundManagement.PlaySoundUnManaged(2);
                     break;
                 case 2:
                     enemyAnimator.SetTrigger("Uppercut");
+                    soundManagement.PlaySoundUnManaged(3);
                     break;
                 case 3:
                     enemyAnimator.SetTrigger("Punching");
+                    soundManagement.PlaySoundUnManaged(4);
                     break;
                 case 4:
                     enemyAnimator.SetTrigger("CrossPunch");
+                    soundManagement.PlaySoundUnManaged(2);
                     break;
             }
             //Attack code here.
-            playerController.health -= 100;
+            playerController.health -= AttackDamage;
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
