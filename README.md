@@ -10,13 +10,9 @@
 
 <h3> Powerups & "Powerdowns"! </h3>
 <p> The power ups I have planned are
--> Make timer quicker temporarily.
--> Movement speed temporary increase.
 -> Bullet speed temporary increase.
 
 The "Powerdowns" I have planned are
--> Make timer slower temporarily.
--> Movement speed temporary decrease.
 -> Bullet speed temporary decrease.</p> 
 
 <h3> Data Persistence </h3>
