@@ -31,7 +31,9 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
         if(grantReward)
         {
             Dictionary<string, object> parameters = new Dictionary<string, object>() {};
-            Analytics.CustomEvent("WatchedAdForLife");
+            AnalyticsService.Instance.CustomData("WatchedAdForLife", parameters);
+
+            AnalyticsService.Instance.Flush();
 
             // Optional - You can call Events.Flush() to send the event immediately
             AnalyticsService.Instance.Flush();

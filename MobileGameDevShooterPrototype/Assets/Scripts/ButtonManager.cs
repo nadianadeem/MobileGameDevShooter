@@ -13,10 +13,12 @@ public class ButtonManager : MonoBehaviour
     public GameObject MovementJoystick;
     public GameObject GyroOption;
     public GameObject timer;
+    public GameObject PauseButton;
 
     public GameObject DeathMenu;
     public GameObject MainMenu;
     public GameObject SettingsMenu;
+    public GameObject PauseMenu;
 
     public Text highscore;
     public Text ControllerText;
@@ -35,7 +37,9 @@ public class ButtonManager : MonoBehaviour
 
         SettingsMenu.SetActive(false);
         timer.SetActive(false);
+        PauseButton.SetActive(false);
         DeathMenu.SetActive(false);
+        PauseMenu.SetActive(false);
 
         highscore.text = "HIGHSCORE - " + TimeSpan.FromSeconds(PlayerPrefs.GetFloat("TimeSurvived")).ToString(@"mm\:ss");
     }
@@ -88,6 +92,8 @@ public class ButtonManager : MonoBehaviour
                 break;
         }
 
+        Time.timeScale = 1;
+
         GameTitle.SetActive(false);
         MainMenu.SetActive(false);
 
@@ -95,6 +101,7 @@ public class ButtonManager : MonoBehaviour
         timerScript = timer.GetComponent<Timer>();
         timerScript.timerActive = true;
         timer.SetActive(true);
+        PauseButton.SetActive(true);
         AdButton.interactable = true;
     }
 
@@ -103,6 +110,8 @@ public class ButtonManager : MonoBehaviour
         ShootingJoystick.SetActive(false);
         MovementJoystick.SetActive(false);
         timer.SetActive(false);
+        PauseButton.SetActive(false);
+        PauseMenu.SetActive(false);
         GameTitle.SetActive(true);
         MainMenu.SetActive(true);
         highscore.text = "HIGHSCORE - " + TimeSpan.FromSeconds(PlayerPrefs.GetFloat("TimeSurvived")).ToString(@"mm\:ss");
@@ -138,6 +147,20 @@ public class ButtonManager : MonoBehaviour
         {
             GyroOption.SetActive(false);
         }
+    }
+
+    public void OpenPauseMenu()
+    {
+        PauseMenu.SetActive(true);
+        PauseButton.SetActive(false);
+        Time.timeScale = 0;
+    }
+
+    public void ClosePauseMenu()
+    {
+        PauseMenu.SetActive(false);
+        PauseButton.SetActive(true);
+        Time.timeScale = 1;
     }
 
     public void CloseSettingMenu()
