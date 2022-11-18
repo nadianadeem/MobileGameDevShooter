@@ -26,6 +26,7 @@ public static class GPGSIds
 {
         public const string achievement_kill_300_enemies = "CggIu67eoggQAhAE"; // <GPGSID>
         public const string achievement_kill_200_enemies = "CggIu67eoggQAhAD"; // <GPGSID>
+        public const string achievement_kill_10_enemies = "CggIu67eoggQAhAH"; // <GPGSID>
         public const string achievement_kill_100_enemies = "CggIu67eoggQAhAB"; // <GPGSID>
         public const string achievement_kill_500_enemies = "CggIu67eoggQAhAG"; // <GPGSID>
         public const string leaderboard_longest_time_survived = "CggIu67eoggQAhAC"; // <GPGSID>

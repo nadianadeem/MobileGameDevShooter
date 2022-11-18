@@ -80,7 +80,16 @@ public class Timer : MonoBehaviour
 
         AnalyticsService.Instance.Flush();
 
-        if(isGoogleServiceEnabled && enemiesKilled >= 100)
+        if (isGoogleServiceEnabled && enemiesKilled >= 10)
+        {
+            // Submit achievement to original default social platform
+            Social.ReportProgress("CggIu67eoggQAhAH.", 100.0f, AchievementCallback);
+
+            // Submit achievement to Google Play
+            PlayGamesPlatform.Instance.ReportProgress("CggIu67eoggQAhAH.", 100.0f, AchievementCallback);
+        }
+
+        if (isGoogleServiceEnabled && enemiesKilled >= 100)
         {
             // Submit achievement to original default social platform
             Social.ReportProgress("CggIu67eoggQAhAB.", 100.0f, AchievementCallback);
