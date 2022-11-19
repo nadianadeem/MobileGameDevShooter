@@ -8,6 +8,7 @@ TagManager:
   - Timer
   - Sound
   - Ammo
+  - VirtualCamera
   layers:
   - Default
   - TransparentFX

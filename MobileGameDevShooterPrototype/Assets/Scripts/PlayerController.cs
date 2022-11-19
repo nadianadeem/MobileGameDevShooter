@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public bool watchedRewardedAd;
     public float playerSpeed = 2.0f;
     public Animator playerAnimator;
+    public CameraShake cameraShake;
 
     private float distance;
     private GameObject[] enemies;
@@ -151,6 +152,7 @@ public class PlayerController : MonoBehaviour
 
             if (health <= 0)
             {
+                cameraShake.ShakeElapsedTime = cameraShake.ShakeDuration;
                 transform.position = spawnPoint.position;
                 GameStarted = false;
                 buttonManager.OpenDeathMenu();
