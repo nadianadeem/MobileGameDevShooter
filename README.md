@@ -21,7 +21,7 @@ The "Powerdowns" I have planned are
 <h2> Framework Design </h2>
 
 <h3> User device's time </h3>
-<p>The user device's time will be used to change the lighting on the map. For example, it shall be dark on the map at night and light in the day. </p>
+<p>The user device's time will be used to change the lighting on the map. For example, it shall be dark on the map at night and light in the day. Decided to not do this to save performance as real time lighting is very heavy on mobile gpu performance.</p>
 
 <h3> Handsets Gyro ability </h3>
 <p>I use the gyro ability of phone to control the player character. The character will use auto aim when in gyro mode so the player only has to focus on movement. This shall also be used as a "shake to start" feature. </p>
