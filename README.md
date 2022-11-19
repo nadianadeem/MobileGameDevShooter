@@ -42,7 +42,7 @@ The "Powerdowns" I have planned are
 <p> To keep player engagement with other mechanics rather than relying on competition between people. -> 100, 200, 300, 400 and 500 enemies killed. (Times can change depending on final playtesting)
 
 <h2> Enemy Design </h2>
-<p> I shall have two types of enemy, one with be quicker than the other and the other shall have more health. This is to combat the potential boredom of just fighting one character. In addition this, I do aim to have a propotion of the enemies shooting weapons too, so the enemies can do melee and ranged attacks, yet again to combat potential the game being stagnant. </p>
+<p> I shall have two types of enemy, one with be quicker than the other and the other shall have more health. This is to combat the potential boredom of just fighting one character. In addition this, I do aim to have a propotion of the enemies shooting weapons too, so the enemies can do melee and ranged attacks, yet again to combat potential the game being stagnant. Decided not to implement shooting as the game is already quite challenging. </p>
 
 <h3> High Health Enemy </h3>
 <img src = "photos/SSBadGuy.png" title ="Enemy type 1">
