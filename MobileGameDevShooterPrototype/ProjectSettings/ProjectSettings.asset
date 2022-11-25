@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: MobileGameDevShooterPrototype
+  companyName: Nadia Nadeem
+  productName: Saloon Survival
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -134,9 +134,11 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.1.4
+  bundleVersion: 1.1.9
   preloadedAssets:
   - {fileID: 11400000, guid: c7805be56b4680e4fa843ada0eb71dac, type: 2}
+  - {fileID: -811510980983601946, guid: 6e60c76fba8279f42a20e6e0ece51189, type: 2}
+  - {fileID: 11400000, guid: 9033469cec984274e882e65f211f3090, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -163,7 +165,7 @@ PlayerSettings:
     iPhone: 0
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 14
+  AndroidBundleVersionCode: 19
   AndroidMinSdkVersion: 31
   AndroidTargetSdkVersion: 32
   AndroidPreferredInstallLocation: 1
@@ -251,7 +253,7 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: E:/MobileGameDevShooter/KeyStore/user.keystore
+  AndroidKeystoreName: D:/MobileGameDevShooter/KeyStore/user.keystore
   AndroidKeyaliasName: saloonsurvival
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0

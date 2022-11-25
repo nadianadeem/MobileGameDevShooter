@@ -64,7 +64,7 @@ public class Timer : MonoBehaviour
 
     public void AchievementCallback(bool result)
     {
-        Debug.Log("100 enemies killed, achievment Unlocked.");
+        Debug.Log("Achievement Unlocked.");
     }
 
     public void SendTimerEvent()
@@ -80,58 +80,40 @@ public class Timer : MonoBehaviour
 
         AnalyticsService.Instance.Flush();
 
-        if (isGoogleServiceEnabled && enemiesKilled >= 10)
+        if (enemiesKilled >= 10)
         {
             // Submit achievement to original default social platform
             Social.ReportProgress("CggIu67eoggQAhAH.", 100.0f, AchievementCallback);
-
-            // Submit achievement to Google Play
-            PlayGamesPlatform.Instance.ReportProgress("CggIu67eoggQAhAH.", 100.0f, AchievementCallback);
         }
 
-        if (isGoogleServiceEnabled && enemiesKilled >= 100)
+        if (enemiesKilled >= 100)
         {
             // Submit achievement to original default social platform
             Social.ReportProgress("CggIu67eoggQAhAB.", 100.0f, AchievementCallback);
-
-            // Submit achievement to Google Play
-            PlayGamesPlatform.Instance.ReportProgress("CggIu67eoggQAhAB.", 100.0f, AchievementCallback);
         }
 
-        if (isGoogleServiceEnabled && enemiesKilled >= 200)
+        if (enemiesKilled >= 200)
         {
             // Submit achievement to original default social platform
             Social.ReportProgress("CggIu67eoggQAhAD.", 100.0f, AchievementCallback);
-
-            // Submit achievement to Google Play
-            PlayGamesPlatform.Instance.ReportProgress("CggIu67eoggQAhAD.", 100.0f, AchievementCallback);
         }
 
-        if (isGoogleServiceEnabled && enemiesKilled >= 300)
+        if (enemiesKilled >= 300)
         {
             // Submit achievement to original default social platform
             Social.ReportProgress("CggIu67eoggQAhAE.", 100.0f, AchievementCallback);
-
-            // Submit achievement to Google Play
-            PlayGamesPlatform.Instance.ReportProgress("CggIu67eoggQAhAE.", 100.0f, AchievementCallback);
         }
 
-        if (isGoogleServiceEnabled && enemiesKilled >= 400)
+        if (enemiesKilled >= 400)
         {
             // Submit achievement to original default social platform
             Social.ReportProgress("CggIu67eoggQAhAF.", 100.0f, AchievementCallback);
-
-            // Submit achievement to Google Play
-            PlayGamesPlatform.Instance.ReportProgress("CggIu67eoggQAhAF.", 100.0f, AchievementCallback);
         }
 
-        if (isGoogleServiceEnabled && enemiesKilled >= 500)
+        if (enemiesKilled >= 500)
         {
             // Submit achievement to original default social platform
             Social.ReportProgress("CggIu67eoggQAhAG.", 100.0f, AchievementCallback);
-
-            // Submit achievement to Google Play
-            PlayGamesPlatform.Instance.ReportProgress("CggIu67eoggQAhAG.", 100.0f, AchievementCallback);
         }
 
         TimeSpan time = TimeSpan.FromSeconds(currentTime);

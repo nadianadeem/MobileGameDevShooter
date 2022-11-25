@@ -118,6 +118,7 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
     {
         Debug.Log($"Error loading Ad Unit: {adUnitId} - {error.ToString()} - {message}");
         // Optionally execute code if the Ad Unit fails to load, such as attempting to try again.
+        buttonManager.ExitGame();
     }
 
     public void OnUnityAdsShowFailure(string adUnitId, UnityAdsShowError error, string message)
@@ -125,6 +126,7 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
         Debug.Log($"Error showing Ad Unit {adUnitId}: {error.ToString()} - {message}");
         // Optionally execute code if the Ad Unit fails to show, such as loading another ad.
         Advertisement.Load(adUnitId, this);
+        buttonManager.ExitGame();
     }
 
     public void OnUnityAdsShowStart(string adUnitId) { }

@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
                 if (LookInput.x != 0.0f || LookInput.y != 0.0f)
                 {
                     Quaternion newRotation = Quaternion.LookRotation(playerDirection);
-                    gameObject.transform.rotation = Quaternion.RotateTowards(gameObject.transform.rotation, newRotation, 200.0f * Time.deltaTime);
+                    gameObject.transform.rotation = Quaternion.RotateTowards(gameObject.transform.rotation, newRotation, 500.0f * Time.deltaTime);
                 }
             }
             
