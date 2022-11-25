@@ -73,6 +73,12 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
     {
         // Note that if the ad content wasn't previously loaded, this method will fail
         Debug.Log("Showing Ad: " + _androidGameId);
+
+        if (!Advertisement.IsReady())
+        {
+            buttonManager.ExitGame();
+        }
+
         Advertisement.Show("Interstitial_Android", this);
         Advertisement.Load("Interstitial_Android", this);
     }
@@ -83,7 +89,6 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
         AdButton = _AdButton;
         Debug.Log("Loading Ad: " + _androidGameId);
         Advertisement.Load("Rewarded_Android", this);
-
     }
 
     // Show the loaded content in the Ad Unit:
@@ -93,6 +98,12 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
         Debug.Log("Showing Ad: " + _androidGameId);
         // Disable the button:
         AdButton.interactable = false;
+
+        if (!Advertisement.IsReady())
+        {
+            buttonManager.ExitGame();
+        }
+
         // Then show the ad:
         Advertisement.Show("Rewarded_Android", this);
     }
@@ -140,8 +151,31 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
             grantReward = true;
             AdButton.interactable = false;
         }
+        else
+        {
+            buttonManager.ExitGame();
+        }
 
         // Load another ad:
         Advertisement.Load("Rewarded_Android", this);
+    }
+
+    public void HandleAdvert(ShowResult result)
+    {
+        switch (result)
+        {
+            case ShowResult.Finished:
+                Debug.Log("The ad was successfully shown.");
+                //
+                // YOUR CODE TO REWARD THE GAMER
+                // Give coins etc.
+                break;
+            case ShowResult.Skipped:
+                Debug.Log("The ad was skipped before reaching the end.");
+                break;
+            case ShowResult.Failed:
+                Debug.LogError("The ad failed to be shown.");
+                break;
+        }
     }
 }
