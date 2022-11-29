@@ -10,7 +10,7 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
 {
     Button AdButton;
     [SerializeField] string _androidGameId;
-    [SerializeField] bool _testMode = true;
+    [SerializeField] bool _testMode = false;
     public ButtonManager buttonManager;
 
     private PlayerController playerController;
@@ -74,13 +74,7 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
         // Note that if the ad content wasn't previously loaded, this method will fail
         Debug.Log("Showing Ad: " + _androidGameId);
 
-        if (!Advertisement.IsReady())
-        {
-            buttonManager.ExitGame();
-        }
-
         Advertisement.Show("Interstitial_Android", this);
-        Advertisement.Load("Interstitial_Android", this);
     }
 
     // Load content to the Ad Unit:
@@ -98,11 +92,6 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
         Debug.Log("Showing Ad: " + _androidGameId);
         // Disable the button:
         AdButton.interactable = false;
-
-        if (!Advertisement.IsReady())
-        {
-            buttonManager.ExitGame();
-        }
 
         // Then show the ad:
         Advertisement.Show("Rewarded_Android", this);
@@ -129,7 +118,6 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
     {
         Debug.Log($"Error loading Ad Unit: {adUnitId} - {error.ToString()} - {message}");
         // Optionally execute code if the Ad Unit fails to load, such as attempting to try again.
-        buttonManager.ExitGame();
     }
 
     public void OnUnityAdsShowFailure(string adUnitId, UnityAdsShowError error, string message)
@@ -137,7 +125,6 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
         Debug.Log($"Error showing Ad Unit {adUnitId}: {error.ToString()} - {message}");
         // Optionally execute code if the Ad Unit fails to show, such as loading another ad.
         Advertisement.Load(adUnitId, this);
-        buttonManager.ExitGame();
     }
 
     public void OnUnityAdsShowStart(string adUnitId) { }
@@ -150,32 +137,6 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
             // Grant a reward.
             grantReward = true;
             AdButton.interactable = false;
-        }
-        else
-        {
-            buttonManager.ExitGame();
-        }
-
-        // Load another ad:
-        Advertisement.Load("Rewarded_Android", this);
-    }
-
-    public void HandleAdvert(ShowResult result)
-    {
-        switch (result)
-        {
-            case ShowResult.Finished:
-                Debug.Log("The ad was successfully shown.");
-                //
-                // YOUR CODE TO REWARD THE GAMER
-                // Give coins etc.
-                break;
-            case ShowResult.Skipped:
-                Debug.Log("The ad was skipped before reaching the end.");
-                break;
-            case ShowResult.Failed:
-                Debug.LogError("The ad failed to be shown.");
-                break;
         }
     }
 }

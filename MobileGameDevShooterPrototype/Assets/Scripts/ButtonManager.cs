@@ -131,11 +131,11 @@ public class ButtonManager : MonoBehaviour
 
     public void ExitGame()
     {
+        OpenMainMenu();
         DeathMenu.SetActive(false);
         Timer timerScript = timer.GetComponent<Timer>();
         timerScript.ResetTimer();
         timerScript.timerActive = false;
-        OpenMainMenu();
     }
 
     public void OpenSettingsMenu()

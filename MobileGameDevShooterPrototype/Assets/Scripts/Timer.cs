@@ -64,7 +64,14 @@ public class Timer : MonoBehaviour
 
     public void AchievementCallback(bool result)
     {
-        Debug.Log("Achievement Unlocked.");
+        if (result)
+        {
+            Debug.Log("Achievement Unlocked.");
+        }
+        else
+        {
+            Debug.Log("Achievement not unlocked.");
+        }
     }
 
     public void SendTimerEvent()
@@ -83,37 +90,37 @@ public class Timer : MonoBehaviour
         if (enemiesKilled >= 10)
         {
             // Submit achievement to original default social platform
-            Social.ReportProgress("CggIu67eoggQAhAH.", 100.0f, AchievementCallback);
+            Social.ReportProgress("CggIu67eoggQAhAH", 100.0f, AchievementCallback);
         }
 
         if (enemiesKilled >= 100)
         {
             // Submit achievement to original default social platform
-            Social.ReportProgress("CggIu67eoggQAhAB.", 100.0f, AchievementCallback);
+            Social.ReportProgress("CggIu67eoggQAhAB", 100.0f, AchievementCallback);
         }
 
         if (enemiesKilled >= 200)
         {
             // Submit achievement to original default social platform
-            Social.ReportProgress("CggIu67eoggQAhAD.", 100.0f, AchievementCallback);
+            Social.ReportProgress("CggIu67eoggQAhAD", 100.0f, AchievementCallback);
         }
 
         if (enemiesKilled >= 300)
         {
             // Submit achievement to original default social platform
-            Social.ReportProgress("CggIu67eoggQAhAE.", 100.0f, AchievementCallback);
+            Social.ReportProgress("CggIu67eoggQAhAE", 100.0f, AchievementCallback);
         }
 
         if (enemiesKilled >= 400)
         {
             // Submit achievement to original default social platform
-            Social.ReportProgress("CggIu67eoggQAhAF.", 100.0f, AchievementCallback);
+            Social.ReportProgress("CggIu67eoggQAhAF", 100.0f, AchievementCallback);
         }
 
         if (enemiesKilled >= 500)
         {
             // Submit achievement to original default social platform
-            Social.ReportProgress("CggIu67eoggQAhAG.", 100.0f, AchievementCallback);
+            Social.ReportProgress("CggIu67eoggQAhAG", 100.0f, AchievementCallback);
         }
 
         TimeSpan time = TimeSpan.FromSeconds(currentTime);
