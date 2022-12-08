@@ -20,9 +20,6 @@ The "Powerdowns" I have planned are
 
 <h2> Framework Design </h2>
 
-<h3> User device's time </h3>
-<p>The user device's time will be used to change the lighting on the map. For example, it shall be dark on the map at night and light in the day. Decided to not do this to save performance as real time lighting is very heavy on mobile gpu performance.</p>
-
 <h3> Handsets Gyro ability </h3>
 <p>I use the gyro ability of phone to control the player character. The character will use auto aim when in gyro mode so the player only has to focus on movement. This shall also be used as a "shake to start" feature. </p>
 
@@ -40,6 +37,12 @@ The "Powerdowns" I have planned are
 
 <h4> Achievements </h4>
 <p> To keep player engagement with other mechanics rather than relying on competition between people. -> 100, 200, 300, 400 and 500 enemies killed. (Times can change depending on final playtesting)
+
+<h4> Sound Manager </h4>
+I have used a sound manager plug in to play background music, one shot sound play and a delayed sound play (which I specify the time for). The one shot sound is used for the bullet shooting. The delayed sound is used for the "ouch" sound effect. 
+
+<h4> Animations </h4>
+I used mixamo for the animations for the player, the animations used by the player model are and idle pistol stance, walking forward with a pistol and walking backwards with a pistol. I also used mixamo animations for the running animations for the enemy as well as their dying animation.
 
 <h2> Enemy Design </h2>
 <p> I shall have two types of enemy, one with be quicker than the other and the other shall have more health. This is to combat the potential boredom of just fighting one character. In addition this, I do aim to have a propotion of the enemies shooting weapons too, so the enemies can do melee and ranged attacks, yet again to combat potential the game being stagnant. Decided not to implement shooting as the game is already quite challenging. </p>
