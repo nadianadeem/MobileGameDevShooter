@@ -9,11 +9,14 @@
 <img src = "photos/Saloon Survival Icon.png" title ="Saloon Survival Icon">
 
 <h3> Powerups & "Powerdowns"! </h3>
+
 <p> The power ups I have planned are
--> Bullet speed temporary increase.
+-> Bullet speed temporary increase. </p>
+<img src = "photos/SSAmmoPickup.png" title ="Saloon Survival Ammo Pickup">
 
 The "Powerdowns" I have planned are
 -> Bullet speed temporary decrease.</p> 
+<img src = "photos/SSPowerdown.png" title ="Saloon Survival Ammo Pickup">
 
 <h3> Data Persistence </h3>
 <p> The game shall keep track of your highscore across play sessions as well as whether it is your first time playing so privacy policies and terms of service are not shown every time you open the app </p>
@@ -35,8 +38,12 @@ The "Powerdowns" I have planned are
 <h4> Leaderboards </h4>
 <p> To see players that have survived the longest across playing countries. </p>
 
+<img src = "photos/LeaderboardStoreListing.png" title ="Saloon Survival Leaderboards">
+
 <h4> Achievements </h4>
-<p> To keep player engagement with other mechanics rather than relying on competition between people. -> 100, 200, 300, 400 and 500 enemies killed. (Times can change depending on final playtesting)
+<p> To keep player engagement with other mechanics rather than relying on competition between people. -> 100, 200, 300, 400 and 500 enemies killed. (Times can change depending on final playtesting)</p>
+
+<img src = "photos/AchievementStoreListing.png" title ="Saloon Survival Achievements">
 
 <h4> Sound Manager </h4>
 I have used a sound manager plug in to play background music, one shot sound play and a delayed sound play (which I specify the time for). The one shot sound is used for the bullet shooting. The delayed sound is used for the "ouch" sound effect. 
