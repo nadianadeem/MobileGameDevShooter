@@ -16,7 +16,7 @@
 
 The "Powerdowns" I have planned are
 -> Bullet speed temporary decrease.</p> 
-<img src = "photos/SSPowerdown.png" title ="Saloon Survival Ammo Pickup">
+<img src = "photos/SSPowerdown.PNG" title ="Saloon Survival Ammo Pickup">
 
 <h3> Data Persistence </h3>
 <p> The game shall keep track of your highscore across play sessions as well as whether it is your first time playing so privacy policies and terms of service are not shown every time you open the app </p>
