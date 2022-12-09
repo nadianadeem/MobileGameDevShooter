@@ -22,6 +22,8 @@ The "Powerdowns" I have planned are
 <p> The game shall keep track of your highscore across play sessions as well as whether it is your first time playing so privacy policies and terms of service are not shown every time you open the app </p>
 
 <h2> Framework Design </h2>
+<h3> Cinemachine </h3>
+<p> Cinemachine is used as the main camera following the player through the game. I have also implemented a camera shake feature for when the player dies. </p>
 
 <h3> Handsets Gyro ability </h3>
 <p>I use the gyro ability of phone to control the player character. The character will use auto aim when in gyro mode so the player only has to focus on movement. This shall also be used as a "shake to start" feature. </p>
