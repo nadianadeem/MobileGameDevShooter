@@ -155,6 +155,7 @@ public class Timer : MonoBehaviour
 
             if (!skipAdvert)
             {
+                adShower.LoadInterstitialAd();
                 adShower.ShowInterstitialAd();
             }
 
