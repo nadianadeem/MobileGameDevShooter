@@ -21,6 +21,7 @@ public class Timer : MonoBehaviour
     float currentTime;
     public Text currentTimeText;
     private bool isGoogleServiceEnabled = false;
+    private bool skipAdvert;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +60,11 @@ public class Timer : MonoBehaviour
                 enemySpawner.timeBetweenEnemySpawns -= 0.2f;
                 difficultyIncrease += 30;
             }
+        }
+
+        if (AnalyticsSessionInfo.sessionState == AnalyticsSessionState.kSessionResumed)
+        {
+            skipAdvert = false;
         }
     }
 
@@ -136,7 +142,23 @@ public class Timer : MonoBehaviour
             {
                 PlayerPrefs.SetFloat("TimeSurvived", currentTime);
             }
-            adShower.ShowInterstitialAd();
+
+            if (AnalyticsSessionInfo.sessionCount > 50 || AnalyticsSessionInfo.sessionElapsedTime > 420000)
+            {
+                skipAdvert = false;
+            }
+
+            if (AnalyticsSessionInfo.sessionFirstRun)
+            {
+                skipAdvert = true;
+            }
+
+            if (!skipAdvert)
+            {
+                adShower.ShowInterstitialAd();
+            }
+
+            skipAdvert = !skipAdvert;
         }
         
         currentTime = 0;

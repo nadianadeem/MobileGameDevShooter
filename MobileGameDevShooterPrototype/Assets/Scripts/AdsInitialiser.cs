@@ -10,7 +10,6 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
 {
     Button AdButton;
     [SerializeField] string _androidGameId;
-    [SerializeField] bool _testMode = false;
     public ButtonManager buttonManager;
 
     private PlayerController playerController;
@@ -47,7 +46,7 @@ public class AdsInitialiser : MonoBehaviour, IUnityAdsInitializationListener, IU
 
     public void InitializeAds()
     {
-        Advertisement.Initialize(_androidGameId, _testMode, this);
+        Advertisement.Initialize(_androidGameId, false, this);
     }
 
     public void OnInitializationComplete()
