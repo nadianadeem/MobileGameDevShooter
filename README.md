@@ -69,3 +69,13 @@ I used mixamo for the animations for the player, the animations used by the play
 <img src = "photos/MapTown.png" title ="Final Map Design, town area">
 <img src = "photos/MapWild.png" title ="Final Map Design, wild area">
 <img src = "photos/MapTrain.png" title ="Final Map Design, train area">
+
+<h2> References </h2>
+<ul>
+<li> Fonts, T. (2005) Edmunds, Edmunds Font. Available at: https://www.dafont.com/edmunds.font (Accessed: October 20, 2022). </li>
+<li>Johnson, J. (no date) Sound manager - audio, sound and music manager for unity: Audio, Unity Asset Store. Available at: https://assetstore.unity.com/packages/tools/audio/sound-manager-audio-sound-and-music-manager-for-unity-56087 (Accessed: November 15, 2022).  </li>
+<li> Kenney • Onscreen Controls (no date). Available at: https://kenney.nl/assets/onscreen-controls (Accessed: October 20, 2022). </li>
+<li> Kenney • Game Icons (no date). Available at: https://kenney.nl/assets/game-icons (Accessed: October 20, 2022). </li>
+<li> Simple GDPR consent: Gui Tools (2020) Unity Asset Store. Available at: https://assetstore.unity.com/packages/tools/gui/simple-gdpr-consent-151966 (Accessed: October 20, 2022). </li>
+<li>Studios, S. (2018) Polygon western - low poly 3D art by Synty: 3D historic, Unity Asset Store. Available at: https://assetstore.unity.com/packages/3d/environments/historic/polygon-western-low-poly-3d-art-by-synty-112212 (Accessed: October 20, 2022). </li>
+</ul>
