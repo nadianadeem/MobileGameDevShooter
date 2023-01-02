@@ -50,7 +50,7 @@ The "Powerdowns" I have planned are
 <h4> Sound Manager </h4>
 I have used a sound manager plug in to play background music, one shot sound play and a delayed sound play (which I specify the time for). The one shot sound is used for the bullet shooting. The delayed sound is used for the "ouch" sound effect. 
 
-<h4> Animations </h4>
+<h2> Animations </h2>
 I used mixamo for the animations for the player, the animations used by the player model are and idle pistol stance, walking forward with a pistol and walking backwards with a pistol. I also used mixamo animations for the running animations for the enemy as well as their dying animation.
 
 <h2> Enemy Design </h2>
