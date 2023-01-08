@@ -21,6 +21,9 @@ The "Powerdowns" I have planned are
 <h3> Data Persistence </h3>
 <p> The game shall keep track of your highscore across play sessions as well as whether it is your first time playing so privacy policies and terms of service are not shown every time you open the app </p>
 
+<h3> Cross-platform portability </h3>
+<p> This app will not be cross platform as it makes use of the Google Play Services. However, the game could be ported over without these services and still contain everything else including the adverts and analytics. </p>
+
 <h2> Framework Design </h2>
 <h3> Cinemachine </h3>
 <p> Cinemachine is used as the main camera following the player through the game. I have also implemented a camera shake feature for when the player dies. </p>
@@ -72,10 +75,16 @@ I used mixamo for the animations for the player, the animations used by the play
 
 <h2> References </h2>
 <ul>
+<li> atomediadesign (no date) Oh, ouch  , Freesound. Available at: https://freesound.org/people/AtoMediaDesign/sounds/648976/ (Accessed: January 8, 2023). </li>
+<li> block A1 sound effect (no date) Royalty Free Background Music. Available at: https://www.fesliyanstudios.com/sound-effects-search.php?q=punch (Accessed: September 22, 2022). </li>
+<li> Download Free Western Stock Music MP3 (no date) Mixkit. Available at: https://mixkit.co/free-stock-music/tag/western/ (Accessed: September 22, 2022). </li>
 <li> Fonts, T. (2005) Edmunds, Edmunds Font. Available at: https://www.dafont.com/edmunds.font (Accessed: October 20, 2022). </li>
+<li> Free sound effects (no date) Royalty Free Background Music. Available at: https://www.fesliyanstudios.com/royalty-free-sound-effects-download/gun-shooting-300 (Accessed: September 22, 2022). </li>
 <li>Johnson, J. (no date) Sound manager - audio, sound and music manager for unity: Audio, Unity Asset Store. Available at: https://assetstore.unity.com/packages/tools/audio/sound-manager-audio-sound-and-music-manager-for-unity-56087 (Accessed: November 15, 2022).  </li>
 <li> Kenney • Onscreen Controls (no date). Available at: https://kenney.nl/assets/onscreen-controls (Accessed: October 20, 2022). </li>
 <li> Kenney • Game Icons (no date). Available at: https://kenney.nl/assets/game-icons (Accessed: October 20, 2022). </li>
+<li> Man getting hit by Under7dude (no date) Freesound. Available at: https://freesound.org/people/Under7dude/sounds/163441/ (Accessed: September 22, 2022). </li>
+<li> Ouch.wav (no date) Freesound. Available at: https://freesound.org/people/ajanhallinta/sounds/649543/ (Accessed: September 22, 2022). </li>
 <li> Simple GDPR consent: Gui Tools (2020) Unity Asset Store. Available at: https://assetstore.unity.com/packages/tools/gui/simple-gdpr-consent-151966 (Accessed: October 20, 2022). </li>
 <li>Studios, S. (2018) Polygon western - low poly 3D art by Synty: 3D historic, Unity Asset Store. Available at: https://assetstore.unity.com/packages/3d/environments/historic/polygon-western-low-poly-3d-art-by-synty-112212 (Accessed: October 20, 2022). </li>
 </ul>
